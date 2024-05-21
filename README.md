@@ -3,7 +3,8 @@ Hangman is a classic game in which a player thinks of a word and the other playe
 
 This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
 
-- File milestone_2 asks an input from user and checks that input is make sense.
+- File milestone_2 asks an input from user and checks that input makes sense.
+- file milestone_3 that involves 2 function check_guess() and ask_for_input().
 
 
 
