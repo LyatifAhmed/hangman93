@@ -1,6 +1,5 @@
-
-import milestone_2
 import milestone_3
+import milestone_2
 import random
 class Hangman():
     def __init__(self, word_list, num_lives=5):
@@ -22,7 +21,7 @@ class Hangman():
         else:
             num_lives -= 1
             print('Sorry,{letter} is not in the word')   
-            print('You hasve {num_lives} lives left')     
+            print('You have {num_lives} lives left')     
 
 
             
@@ -34,11 +33,11 @@ class Hangman():
             guess = input('Guess a letter: ')
             if len(guess) > 1  and  guess.isalpha():
                 print('Invalid letter. Please, enter a single alphabetical character.')
-            elif guess in self.list_of_guesses:
+            elif guess in list_of_guesses:
                 print('You already tried that letter!')
             else:
-                check_guess(guess)
-                self.list_of_guesses.append(guess)
+                guess.check_guess()
+                list_of_guesses.append(guess)
     ask_for_input()
                   
 

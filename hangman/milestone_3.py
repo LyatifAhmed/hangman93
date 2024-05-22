@@ -1,4 +1,4 @@
-import milestone_2
+from milestone_2 import word
 
 def check_guess(guess):
 
