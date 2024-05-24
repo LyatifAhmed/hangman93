@@ -1,17 +1,20 @@
 import random
-from milestone_2 import word_list
+
+
 class Hangman():
     '''
-    The hangman class and methods
+    Hangman class which runs the game 
     '''
     def __init__(self, word_list, num_lives=5):
+        '''
+        Class constructor which initialize the hangman game
+        '''
         self.word_list = word_list
         self.word = random.choice(word_list)
-        self.word_guessed = list('_' * len(self.word))
-        self.num_letters = len(self.word)
+        self.word_guessed = ['_'] * len(self.word)
+        self.num_letters = len(set(self.word))
         self.num_lives = num_lives
-        
-        self.list_of_guesses = list()
+        self.list_of_guesses = []
         
     def check_guess(self, guess):
         '''
@@ -21,16 +24,14 @@ class Hangman():
         :param guess:String
     
         '''
-
         guess = guess.lower()
-        
-        
         if guess in self.word:
-
             print(f'Good guess! {guess} is in word.')
             for index, letter in enumerate(self.word):
                 if letter == guess:
+            
                     self.word_guessed[index] = letter
+
             self.num_letters -= 1 
 
         else:
@@ -39,13 +40,6 @@ class Hangman():
              print(f'Sorry,{guess} is not in the word')   
              print(f'You have {self.num_lives} lives left')       
             
-            
-                
-
-
-            
-            
-
     def ask_for_input(self):
         '''
         method asks an input and iteratively checks if it is valid input
@@ -53,7 +47,7 @@ class Hangman():
         '''
        
         while True:
-            print(self.word_guessed)
+            
             guess = input('Guess a letter: ')
             if len(guess) != 1  or not guess.isalpha():
                 print('Invalid letter. Please, enter a single alphabetical character.')
@@ -62,7 +56,9 @@ class Hangman():
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
-        
+                print(self.word_guessed)
+                break
+                
 def play_game(word_list):
     '''
     Creates and instance of a class Hangman
@@ -72,13 +68,21 @@ def play_game(word_list):
     game = Hangman(word_list, num_lives)
 
     while True:
-        if num_lives == 0:
+        if game.num_lives == 0:
             print('You lost!')
+            break
         elif game.num_letters > 0:
             game.ask_for_input()
+            
         else:
             print('Congratulations!')
+            break
 
-play_game(word_list)
+
+if __name__=='__main__':
+    word_list = ['apple','melon','grapes','banana','cherry']
+    play_game(word_list)
+    
+    
    
 
