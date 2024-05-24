@@ -1,44 +1,57 @@
-import milestone_3
+
 import milestone_2
 import random
+
 class Hangman():
+    '''
+    The hangman class and methods
+    '''
     def __init__(self, word_list, num_lives=5):
+        self.word_list = word_list
         self.word = random.choice(word_list)
-        self.word_guessed = ['_' * len(self.word)]
+        self.word_guessed = list('_' * len(self.word))
         self.num_letters = len(self.word)
         self.num_lives = num_lives
-        self.word_list = word_list
-        self.list_of_guesses = []
+        
+        self.list_of_guesses = list()
         
     def check_guess(self, guess):
+
         guess = guess.lower()
+        
+        
         if guess in self.word:
             print(f'Good guess! {guess} is in word.')
-            for letter in self.word:
+            for index, letter in enumerate(self.word):
                 if letter == guess:
-                    self.word_guessed[letter] = letter
+                    self.word_guessed[index] = letter
             self.num_letters -= 1   
         else:
-            num_lives -= 1
-            print('Sorry,{letter} is not in the word')   
-            print('You have {num_lives} lives left')     
+            self.num_lives -= 1
+            print(f'Sorry,{guess} is not in the word')   
+            print(f'You have {self.num_lives} lives left')
+                
 
 
             
             
 
-    def ask_for_input():
+    def ask_for_input(self):
        
         while True:
+            print(self.word_guessed)
             guess = input('Guess a letter: ')
-            if len(guess) > 1  and  guess.isalpha():
+            if len(guess) != 1  or not guess.isalpha():
                 print('Invalid letter. Please, enter a single alphabetical character.')
-            elif guess in list_of_guesses:
+            elif guess in self.list_of_guesses:
                 print('You already tried that letter!')
             else:
-                guess.check_guess()
-                list_of_guesses.append(guess)
-    ask_for_input()
+                self.check_guess(guess)
+                self.list_of_guesses.append(guess)
+        
+hangman = Hangman(milestone_2.word_list)
+hangman.ask_for_input()
+    
                   
 
 
