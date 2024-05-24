@@ -3,10 +3,29 @@ Hangman is a classic game in which a player thinks of a word and the other playe
 
 This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
 
-- File milestone_2 asks an input from user and checks that input makes sense.
-- File milestone_3 that involves 2 function check_guess() and ask_for_input().
-- File milestone_4 that involves a class named Hangman and has 3 method __init__(), check_guess() and ask_for_input().
-- file milestone_5 that involves play_game() function
+Installation and usage instruction
+```
+1.$ git clone [https://github.com/LyatifAhmed/hangman93.git]
+2.$ python hangman_game.py
+
+```
+
+
+
+
+
+```
+├── hangmangame.py
+├── milestones
+│   ├── milestone_2.py
+│   ├── milestone_3.py
+│   ├── milestone_4.py
+│   └── __pycache__
+│       ├── milestone_2.cpython-310.pyc
+│       ├── milestone_3.cpython-310.pyc
+│       └── milestone_4.cpython-310.pyc
+└── README.md
+```
 
 
 
