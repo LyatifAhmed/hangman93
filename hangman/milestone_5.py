@@ -14,6 +14,9 @@ class Hangman():
         self.list_of_guesses = list()
         
     def check_guess(self, guess):
+        '''
+        
+        '''
 
         guess = guess.lower()
         
@@ -50,11 +53,12 @@ class Hangman():
 def play_game(word_list):
     num_lives = 5
     game = Hangman(word_list, num_lives)
+
     while True:
         if num_lives == 0:
             print('You lost!')
-        elif num_letters > 0:
-            ask_for_input()
+        elif game.num_letters > 0:
+            game.ask_for_input()
         else:
             print('Congratulations!')
 
