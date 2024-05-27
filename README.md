@@ -5,8 +5,8 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 
 Installation and usage instruction
 ```
-1.$ git clone [https://github.com/LyatifAhmed/hangman93.git]
-2.$ python hangman_game.py
+git clone <https://github.com/LyatifAhmed/hangman93.git>
+python hangman_game.py
 
 ```
 
